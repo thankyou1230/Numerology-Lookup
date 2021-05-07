@@ -1,3 +1,7 @@
+*{
+  margin: 0px;
+  padding: 0px;
+}
 h1{
   color: white ;
   font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
@@ -6,7 +10,7 @@ h1{
   font-size: 75pt;
   margin: 10px;
   background:#ff751a;
-  margin: 0px;
+  margin-bottom: 50px ;
 }
 h1 a {
   color:white;
@@ -17,4 +21,14 @@ h1 a {
 h1 a :hover{
   text-shadow: 0 8px 8px rgb(10 16 20 / 24%);
   transition: text-shadow .5s;
+}
+
+p{
+  padding: 20px;
+  background: lightblue;
+  margin: 20px 20px;
+  border-radius: 10px;
+  font-size: 15pt;
+  word-wrap: break-word;
+  text-align: center;
 }

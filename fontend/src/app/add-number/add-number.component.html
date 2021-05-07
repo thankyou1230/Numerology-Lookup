@@ -5,14 +5,15 @@
   ADD NUMBER
 </h1>
 <div id="content">
+  <input type="file" #file placeholder="Choose file" (change)="uploadFile(file.files)">
   <p>
     Number
-    <input placeholder="1,2,3,..." type="text">
+    <input placeholder="1,2,3,..." [(ngModel)]="number" type="text"/>
   </p>
   <p>
-    <textarea placeholder="Content of the number" type="text"></textarea>
-    <input id="file-input" type="file">
-    <i id=img-holder></i>
+    <textarea id="content-input" placeholder="Content of the number" type="text" [(ngModel)]="content"></textarea>
+    <input id="file-input" type="file" accept="image/x-png,image/gif,image/jpeg" (change)="handlFileInput"/>
   </p>
-  <button id="submit">Submit</button>
+  <button id="submit" (click)="addNumber">Submit</button>
 </div>
+

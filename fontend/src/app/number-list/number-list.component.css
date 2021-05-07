@@ -8,13 +8,22 @@ h1{
   background:#ff751a;
   margin: 0px;
 }
-h1 a {
+a {
   color:white;
   text-align: left;
   margin-left: 10px;
   margin-right: 21%;
 }
-h1 a :hover{
+a :hover{
   text-shadow: 0 8px 8px rgb(10 16 20 / 24%);
   transition: text-shadow .5s;
 }
+p{
+  padding: 20px;
+  background: lightblue;
+  margin: 20px 20px;
+  border-radius: 10px;
+  font-size: 15pt;
+  word-wrap: break-word;
+  text-align: center;
+} 
