@@ -1,0 +1,22 @@
+h1{
+  color: #6d245c ;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-weight: bolder;
+  text-align: center;
+  font-size: 75pt;
+  margin-top: 10%;
+  margin-left: 10%;
+  margin-right: 10%;
+  padding: 0px;
+}
+h2{
+  color: #6d245c ;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-weight: bolder;
+  text-align: center;
+  font-size: 25pt;
+  margin-top: 2%;
+  margin-left: 10%;
+  margin-right: 10%;
+  padding: 0px;
+}

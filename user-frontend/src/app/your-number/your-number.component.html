@@ -1,0 +1,7 @@
+<div id="content">
+  <h1>Input your birthday </h1>
+  <input type="date" (change)="updateDate($event.target.valueAsDate)">
+</div>
+<div id=btn>
+  <button type="submit" (click)="returnResult()">Result</button>
+</div>

@@ -13,47 +13,32 @@ export class AddNumberComponent implements OnInit {
   number
   content
   inputFile
-
+  status
   ngOnInit() {
   }
 
-  addNumber(){
-    if(this.number && this.content ){
-      let strApi='https://localhost:5001/addNumber?id=${number}&content=${content}&img={img}';
-      this.http.get(strApi).subscribe((e)=>{
-        this.number='';
-        this.content='';
-        this.inputFile=null;
-      }, (err)=>{
-        alert(err);
-      })
-    }
-    else{
-      alert("Missing filled"); 
-    }
+  public updateFile(files){
+    this.inputFile=files;
   }
-  handleFileInput(){
-    alert(1);
-  };
-  public uploadFile = (files) => {
-    if (files.length === 0) {
+
+  public uploadFile = () => {
+    if (this.inputFile.length === 0 || this.content=='' || this.number=='') {
       return;
     }
-    let fileToUpload = <File>files[0];
+    let fileToUpload = <File>this.inputFile[0];
     const formData = new FormData();
-    formData.append('file', fileToUpload, fileToUpload.name);
+    formData.append(this.content, fileToUpload, this.number);
 
-    this.http.post('https://localhost:44329/Upload', formData, {reportProgress: true, observe: 'events'})
+    this.http.post('https://localhost:5001/Upload', formData, {reportProgress: true, observe: 'events'})
       .subscribe(event => {
-        debugger
-        // if (event.type === HttpEventType.UploadProgress)
-        //   this.progress = Math.round(100 * event.loaded / event.total);
-        // else if (event.type === HttpEventType.Response) {
-        //   this.message = 'Upload success.';
-        //   this.onUploadFinished.emit(event.body);
-        // }
-        alert('done');
+        this.status=1
+      },err=>{
+        alert(err);
+        this.status=0
       });
+    if(this.status==1){
+      alert("Change sucessfully!")
+    }
   }
 
 }

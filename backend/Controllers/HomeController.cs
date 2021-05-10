@@ -42,6 +42,7 @@ namespace backend.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
+        //############### Return the number list from db #######################
         [HttpGet]
         [Route("getNumber")]
         public string getNumber(){
@@ -57,6 +58,7 @@ namespace backend.Controllers
             return JsonConvert.SerializeObject(dataTable);
         }
 
+        //########################## Return feedback list from db ##########################
         [HttpGet]
         [Route("getFeedBack")]
         public string getFeedBack(){
@@ -76,9 +78,10 @@ namespace backend.Controllers
             return JsonConvert.SerializeObject(fb_list);
         }
         
+        //############################# Add number information to db ###############################
         [HttpPost]
         [Route("addNumber")]
-        public string addNumber(string id, string content, string img)
+        public string addNumber(string id, string content, string imgURL)
         {
             SqlConnection con = new SqlConnection(DB);
             con.Open();
@@ -88,13 +91,13 @@ namespace backend.Controllers
             int status;
             if (exist > 0)
             {
-                string update = String.Format("update Number set infors=N'{0}',image='{1}' where number='{2}'", content, img, id);
+                string update = String.Format("update Number set infors=N'{0}',image='{1}' where number='{2}'", content, imgURL, id);
                 cmd = new SqlCommand(update, con);
                 status = cmd.ExecuteNonQuery();
             }
             else
             {
-                string insert = String.Format("Insert into Number values ('{0}',N'{1}','{2}')", id, content, img);
+                string insert = String.Format("Insert into Number values ('{0}',N'{1}','{2}')", id, content, imgURL);
                 cmd = new SqlCommand(insert, con);
                 status = cmd.ExecuteNonQuery();
             }
@@ -104,7 +107,8 @@ namespace backend.Controllers
             else
                 return "NOT OK";
         }
-
+        
+        //############################ Receive info form from calling api #################################
         [HttpPost]
         [Route("Upload")]
         public IActionResult Upload()
@@ -118,14 +122,14 @@ namespace backend.Controllers
                 if (file.Length > 0)
                 {
                     var fileName = ContentDispositionHeaderValue.Parse(file.ContentDisposition).FileName.Trim('"');
-                    var fullPath = Path.Combine(pathToSave, fileName);
+                    var fullPath = Path.Combine(pathToSave, fileName+".png");
                     var dbPath = Path.Combine(folderName, fileName);
-
+                    var content=ContentDispositionHeaderValue.Parse(file.ContentDisposition).Name;
                     using (var stream = new FileStream(fullPath, FileMode.Create))
                     {
                         file.CopyTo(stream);
                     }
-
+                    addNumber(fileName,content,fullPath);
                     return Ok(new { dbPath });
                 }
                 else
@@ -138,6 +142,36 @@ namespace backend.Controllers
                 return StatusCode(500, $"Internal server error: {ex}");
             }
         }
+
+        //########################################## Return result to client ################################################
+        public string calcNumb(string input){
+            int numb=input.ToCharArray().Sum(c => c - '0');
+            if(numb>11 && numb!=22){
+                return calcNumb(numb.ToString());
+            }
+            else if(numb==22){
+                return "22/4";
+            }
+            else
+                return numb.ToString();
+        }
+        
+        [HttpGet]
+        [Route("getResult")]
+        public string getResult(string day, string month, string year){
+            string number=calcNumb(day+month+year);
+            SqlConnection con= new SqlConnection(DB);
+            con.Open();            
+            string cmdText="Select * from Number where number="+number;
+            SqlCommand cmd=new SqlCommand(cmdText,con);
+            SqlDataReader dataReader= cmd.ExecuteReader();
+            DataTable dataTable=new DataTable();
+            dataTable.Load(dataReader);
+            con.Close();
+            return JsonConvert.SerializeObject(dataTable);
+        }
+
+
         
     }
 }

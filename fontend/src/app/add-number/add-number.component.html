@@ -1,19 +1,20 @@
-<h1>
-  <a [routerLink]="['/']" routerLinkActive="router-link-active" >
+<div id='head'>
+  <a class='header' href='/'>
     <i class='fas fa-angle-double-left'></i>
   </a>
-  ADD NUMBER
-</h1>
+  <h1 class='header'>
+    FEEDBACK
+  </h1>
+</div>
 <div id="content">
-  <input type="file" #file placeholder="Choose file" (change)="uploadFile(file.files)">
   <p>
     Number
     <input placeholder="1,2,3,..." [(ngModel)]="number" type="text"/>
   </p>
   <p>
     <textarea id="content-input" placeholder="Content of the number" type="text" [(ngModel)]="content"></textarea>
-    <input id="file-input" type="file" accept="image/x-png,image/gif,image/jpeg" (change)="handlFileInput"/>
+    <input id="file-input" type="file" #file placeholder="Choose file" accept="image/x-png,image/gif,image/jpeg" (change)="updateFile(file.files)">
   </p>
-  <button id="submit" (click)="addNumber">Submit</button>
+  <button id="submit" (click)="uploadFile()">Submit</button>
 </div>
 

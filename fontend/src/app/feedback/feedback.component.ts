@@ -19,6 +19,7 @@ export class FeedbackComponent implements OnInit {
       },
       err => {
         console.log(err);
+        alert("Có lỗi trong quá trình thực thi, xin thử lại")
       }
     )
   }

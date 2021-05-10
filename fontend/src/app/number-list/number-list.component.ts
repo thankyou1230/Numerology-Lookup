@@ -17,12 +17,13 @@ export class NumberListComponent implements OnInit {
           const resultArray = Object.keys(e[l]).map(index => {
           let person = e[l][index];
           return person;
-      });    
-        this.appendHTML+="<p class='number'>Số "+resultArray[0]+"</p>";
+          });    
+          this.appendHTML+="<p class='number'>Số "+resultArray[0]+"</p>";
          }
       },
       err => {
         console.log(err);
+        alert("Có lỗi trong quá trình thực thi, xin thử lại")
       }
     )
   }
