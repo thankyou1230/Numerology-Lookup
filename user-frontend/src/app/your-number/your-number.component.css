@@ -100,7 +100,7 @@ input{
 }
 #fb-div{
   width: 450px;
-  height: 300px;
+  height: 310px;
   position: absolute;
   margin-top: -18.5%;
   margin-left: 36.5%;
@@ -112,17 +112,17 @@ input{
   height: 30px; 
   font-size: 15pt;
   position: absolute;
-  top: 40px;
+  top: 20px;
   left: 25px;
   text-align: left;
   margin-bottom: 10px;
 }
 #fb-content{
   width: 400px; 
-  height: 150px; 
+  height: 200px; 
   font-size: 15pt;
   position: absolute;
-  top: 80px;
+  top: 60px;
   left: 25px;
   text-align: left;
   margin-bottom: 10px;
