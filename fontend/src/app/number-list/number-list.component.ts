@@ -12,7 +12,7 @@ export class NumberListComponent implements OnInit {
   constructor(private http:HttpClient) { }
   appendHTML: string="";
   ngOnInit() {
-    this.http.get('https://localhost:5001/getNumber').subscribe((e) => {
+    this.http.get('http://localhost:5000/getNumber').subscribe((e) => {
       for(let l=0; l<Object.keys(e).length; l++){
           const resultArray = Object.keys(e[l]).map(index => {
           let person = e[l][index];

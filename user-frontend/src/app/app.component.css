@@ -1,4 +1,5 @@
 #navi{
+  width: 100%;
   background:none;
   padding-top: 2%;
   padding-bottom: 2%;
@@ -7,9 +8,9 @@
 .navi{
   font-size: 20pt;
   font-weight: bold;
-  color:white;
+  color:#ffda00;
   font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  padding: 2% 5%;
+  padding: 2% 4%;
   height: 100%;
 
   background: #6d245c;
@@ -17,6 +18,9 @@
   border-right: solid white 0.5px;
 }
 .navi:hover{
-  text-shadow: 0 8px 8px rgb(255 255 255 / 50%);
+  text-shadow: 0 4px 4px #ffda00;
   transition: text-shadow .5s;
+}
+#layer{
+
 }

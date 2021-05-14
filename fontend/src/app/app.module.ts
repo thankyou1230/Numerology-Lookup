@@ -9,13 +9,14 @@ import { NumberListComponent } from './number-list/number-list.component';
 import { FeedbackComponent } from './feedback/feedback.component';
 import { FormsModule } from '@angular/forms';
 
+
 @NgModule({
   declarations: [
     AppComponent,
     AddNumberComponent,
     AdminComponent,
     NumberListComponent,
-    FeedbackComponent
+    FeedbackComponent,
   ],
   imports: [
     BrowserModule,

@@ -29,7 +29,7 @@ export class AddNumberComponent implements OnInit {
     const formData = new FormData();
     formData.append(this.content, fileToUpload, this.number);
 
-    this.http.post('https://localhost:5001/Upload', formData, {reportProgress: true, observe: 'events'})
+    this.http.post('http://localhost:5000/Upload', formData, {reportProgress: true, observe: 'events'})
       .subscribe(event => {
         this.status=1
       },err=>{
@@ -37,7 +37,9 @@ export class AddNumberComponent implements OnInit {
         this.status=0
       });
     if(this.status==1){
-      alert("Change sucessfully!")
+      alert("Change sucessfully!");
+      this.number='';
+      this.content='';
     }
   }
 

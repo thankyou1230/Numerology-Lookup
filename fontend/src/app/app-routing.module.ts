@@ -10,7 +10,7 @@ const routes: Routes = [
   { path: 'add-number', component: AddNumberComponent },
   { path: '', component: AdminComponent },
   { path: 'feedback', component: FeedbackComponent },
-  { path: 'number-list', component: NumberListComponent }
+  { path: 'number-list', component: NumberListComponent },
 ];
 
 @NgModule({

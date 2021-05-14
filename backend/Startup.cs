@@ -30,7 +30,8 @@ namespace backend
                 options.AddPolicy("CorsApi",
                     builder => builder.WithOrigins("*")
                 .AllowAnyHeader()
-                .AllowAnyMethod());
+                .AllowAnyMethod()
+                .AllowAnyOrigin());
             });
         }
 

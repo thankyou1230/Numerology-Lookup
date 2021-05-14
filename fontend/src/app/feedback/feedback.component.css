@@ -33,3 +33,13 @@ p{
   background: #ff751a;
   text-align: center
 }
+.feedback{
+  margin-left: 5%;
+  margin-right: 5%;
+  text-align: left;
+}
+.email{
+  color: blue ;
+  font-weight: bold;
+}
+

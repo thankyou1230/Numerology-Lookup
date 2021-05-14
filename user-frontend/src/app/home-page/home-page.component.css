@@ -4,7 +4,6 @@ h1{
   font-weight: bolder;
   text-align: center;
   font-size: 75pt;
-  margin-top: 10%;
   margin-left: 10%;
   margin-right: 10%;
   padding: 0px;
@@ -19,4 +18,36 @@ h2{
   margin-left: 10%;
   margin-right: 10%;
   padding: 0px;
+}
+#logo{
+  margin-top: 5%;
+  text-align: center;
+}
+
+#scroll{
+  width: 100px;
+  height: 100px;
+  transition: box-shadow .5s;
+  border-radius: 50%;
+  display: block;
+  margin-top: 5%;
+  margin-bottom: 20%;
+  background: #6d245c;
+  border:none;
+  margin-left: 47%;
+}
+#scroll:hover{
+  box-shadow: 0 8px 8px rgb(10 16 20 / 24%);
+  text-decoration: none;
+}
+
+.down {
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+.arrow {
+  border: solid #e2c575;
+  border-width: 0 5px 5px 0;
+  display: inline-block;
+  padding: 10px; text-align: center;
 }

@@ -69,13 +69,8 @@ namespace backend.Controllers
             SqlDataReader dataReader= cmd.ExecuteReader();
             DataTable dataTable=new DataTable();
             dataTable.Load(dataReader);
-            var fb_list = new List<string>();
-            for (int i = 0; i < dataTable.Rows.Count; i++)
-            {
-                fb_list.Add(dataTable.Rows[i][0].ToString());
-            }
             con.Close();
-            return JsonConvert.SerializeObject(fb_list);
+            return JsonConvert.SerializeObject(dataTable);
         }
         
         //############################# Add number information to db ###############################
@@ -116,20 +111,20 @@ namespace backend.Controllers
             try
             {
                 var file = Request.Form.Files[0];
-                var folderName = Path.Combine("Resources", "Images");
-                var pathToSave = Path.Combine(Directory.GetCurrentDirectory(), folderName);
+                var folderName = Path.Combine("assets", "Resources");
+                var pathToSave = Path.Combine("D:\\Quang_Pythagoras\\pythagoras-for-intern\\user-frontend\\src", folderName);
 
                 if (file.Length > 0)
                 {
                     var fileName = ContentDispositionHeaderValue.Parse(file.ContentDisposition).FileName.Trim('"');
                     var fullPath = Path.Combine(pathToSave, fileName+".png");
-                    var dbPath = Path.Combine(folderName, fileName);
-                    var content=ContentDispositionHeaderValue.Parse(file.ContentDisposition).Name;
+                    var dbPath = Path.Combine(folderName, fileName+".png");
+                    var content=ContentDispositionHeaderValue.Parse(file.ContentDisposition).Name.Trim('"');
                     using (var stream = new FileStream(fullPath, FileMode.Create))
                     {
                         file.CopyTo(stream);
                     }
-                    addNumber(fileName,content,fullPath);
+                    addNumber(fileName,content,dbPath);
                     return Ok(new { dbPath });
                 }
                 else
@@ -150,7 +145,7 @@ namespace backend.Controllers
                 return calcNumb(numb.ToString());
             }
             else if(numb==22){
-                return "22/4";
+                return "22";
             }
             else
                 return numb.ToString();
@@ -158,8 +153,9 @@ namespace backend.Controllers
         
         [HttpGet]
         [Route("getResult")]
-        public string getResult(string day, string month, string year){
-            string number=calcNumb(day+month+year);
+        public string getResult(string date){
+            date=date.Replace("-",string.Empty);
+            string number=calcNumb(date);
             SqlConnection con= new SqlConnection(DB);
             con.Open();            
             string cmdText="Select * from Number where number="+number;
@@ -169,6 +165,22 @@ namespace backend.Controllers
             dataTable.Load(dataReader);
             con.Close();
             return JsonConvert.SerializeObject(dataTable);
+        }
+
+        [HttpPost]
+        [Route("addFeedBack")]
+        public string addFeedback(string email, string fb){
+            SqlConnection con = new SqlConnection(DB);
+            con.Open();
+            SqlCommand cmd=new SqlCommand();
+            string insert = String.Format("Insert into FeedBack values (N'{0}','{1}')", fb.Replace("'",string.Empty),email);
+            cmd = new SqlCommand(insert, con);
+            int status = cmd.ExecuteNonQuery();
+            con.Close();
+            if (status == 1)
+                return JsonConvert.SerializeObject("OK");
+            else
+                return JsonConvert.SerializeObject("NOT OK");
         }
 
 
