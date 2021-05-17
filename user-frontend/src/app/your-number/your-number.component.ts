@@ -18,6 +18,7 @@ export class YourNumberComponent implements OnInit {
   text
   result_background
   fb_display='none'
+  numb=''
   ngOnInit() {
   }
 
@@ -48,11 +49,17 @@ export class YourNumberComponent implements OnInit {
   displayResult(arr){
     this.text=arr["infors"]
     this.result_display='';
-    this.result_background="url('"+arr["image"]+"')"
+    this.result_background=arr["image"]
+    this.numb=arr["number"]
+    console.log(this.text)
+    console.log(this.result_background)
   }
 
   closeResult(){
     this.result_display='none';
+    this.fb_display='none'
+    this.fb_content='';
+    this.fb_email='';
   }
 
   closeFeedback(){

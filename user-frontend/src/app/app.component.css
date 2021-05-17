@@ -1,25 +1,21 @@
 #navi{
   width: 100%;
   background:none;
-  padding-top: 2%;
-  padding-bottom: 2%;
+  padding-top: 1.5%;
   text-align:center;
 }
 .navi{
-  font-size: 20pt;
+  font-size: 100%;
   font-weight: bold;
-  color:#ffda00;
+  color:white;
   font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  padding: 2% 4%;
-  height: 100%;
-
-  background: #6d245c;
+  padding: 1% 2%;
   text-decoration: none;
-  border-right: solid white 0.5px;
+  border-radius: 20px;
 }
 .navi:hover{
-  text-shadow: 0 4px 4px #ffda00;
-  transition: text-shadow .5s;
+  box-shadow: 1px 1px 2px 2px black;
+  transition: box-shadow .5s;
 }
 #layer{
 

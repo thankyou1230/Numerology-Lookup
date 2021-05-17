@@ -1,22 +1,21 @@
 h1{
-  color: #6d245c ;
+  color: white ;
   font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   font-weight: bolder;
   text-align: center;
-  font-size: 75pt;
+  font-size: 500%;
   margin-left: 10%;
   margin-right: 10%;
   padding: 0px;
 }
 h2{
-  color: #6d245c ;
+  color: white ;
   font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   font-weight: bolder;
   text-align: center;
-  font-size: 25pt;
+  font-size: 175%;
   margin-top: 2%;
-  margin-left: 10%;
-  margin-right: 10%;
+  margin-bottom: 6vh;
   padding: 0px;
 }
 #logo{
@@ -25,19 +24,15 @@ h2{
 }
 
 #scroll{
-  width: 100px;
-  height: 100px;
+  width: 10vh;
+  height: 10vh;
   transition: box-shadow .5s;
   border-radius: 50%;
-  display: block;
-  margin-top: 5%;
-  margin-bottom: 20%;
-  background: #6d245c;
+  background: white;
   border:none;
-  margin-left: 47%;
 }
 #scroll:hover{
-  box-shadow: 0 8px 8px rgb(10 16 20 / 24%);
+  box-shadow: 0 8px 8px rgb(0 0 0 / 24%);
   text-decoration: none;
 }
 
@@ -46,7 +41,7 @@ h2{
   -webkit-transform: rotate(45deg);
 }
 .arrow {
-  border: solid #e2c575;
+  border: solid #8b00cc;
   border-width: 0 5px 5px 0;
   display: inline-block;
   padding: 10px; text-align: center;

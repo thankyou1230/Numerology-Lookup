@@ -19,6 +19,7 @@ export class AddNumberComponent implements OnInit {
 
   public updateFile(files){
     this.inputFile=files;
+    console.log(this.content)
   }
 
   public uploadFile = () => {

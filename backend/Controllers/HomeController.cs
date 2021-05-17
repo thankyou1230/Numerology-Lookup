@@ -78,6 +78,9 @@ namespace backend.Controllers
         [Route("addNumber")]
         public string addNumber(string id, string content, string imgURL)
         {
+            content=content.Replace("%0A","\n");
+            imgURL=imgURL.Replace("\\\\","/");
+            imgURL=imgURL.Trim('/');
             SqlConnection con = new SqlConnection(DB);
             con.Open();
             string check_exist = String.Format("Select count(*) from Number where number={0}", id);
@@ -181,6 +184,20 @@ namespace backend.Controllers
                 return JsonConvert.SerializeObject("OK");
             else
                 return JsonConvert.SerializeObject("NOT OK");
+        }
+
+        [HttpGet]
+        [Route("getSiteMap")]
+        public string addFeedback(){
+            SqlConnection con= new SqlConnection(DB);
+            con.Open();            
+            string cmdText="Select * from SiteMap";
+            SqlCommand cmd=new SqlCommand(cmdText,con);
+            SqlDataReader dataReader= cmd.ExecuteReader();
+            DataTable dataTable=new DataTable();
+            dataTable.Load(dataReader);
+            con.Close();
+            return JsonConvert.SerializeObject(dataTable);
         }
 
 

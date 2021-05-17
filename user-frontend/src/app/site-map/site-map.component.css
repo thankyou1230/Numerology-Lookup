@@ -1,6 +1,16 @@
 #map{
-font-size: 20pt;
+font-size: 1.5em;
 position:absolute;
 left: 5%;
 top: 20%;
+text-decoration: none;
+color: white;
+}
+a{
+  text-decoration: none;
+  color: aliceblue
+}
+a:hover{
+  text-shadow: 0 4px 4px black;
+  transition: text-shadow .5s;
 }

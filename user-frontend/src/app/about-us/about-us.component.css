@@ -6,7 +6,7 @@ img{
   border-radius: 50%;
 }
 h2{
-  color: #6d245c ;
+  color: white ;
   font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   font-weight: bolder;
   font-size: 20pt;
@@ -14,15 +14,16 @@ h2{
 }
 #map{
   margin-top: 5%;
-  float: right;
-  margin-right: 15%;
-  
+  width: 80vw;
+  height: 60vh;
+  margin-left: 10vw;
+  margin-bottom: 20vh;
 }
 div{
-  margin-left: 13%;
+  margin-left: 10%;
   margin-top: 7%;
   padding-right: 40px;
   padding-top: 50px;
   padding-bottom: 50px;
-  border-right: 3px solid black;
+  color: white;
 } 
