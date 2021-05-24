@@ -8,6 +8,7 @@ import { AdminComponent } from './admin/admin.component';
 import { NumberListComponent } from './number-list/number-list.component';
 import { FeedbackComponent } from './feedback/feedback.component';
 import { FormsModule } from '@angular/forms';
+import { IssueComponent } from './issue/issue.component';
 
 
 @NgModule({
@@ -17,6 +18,7 @@ import { FormsModule } from '@angular/forms';
     AdminComponent,
     NumberListComponent,
     FeedbackComponent,
+    IssueComponent,
   ],
   imports: [
     BrowserModule,

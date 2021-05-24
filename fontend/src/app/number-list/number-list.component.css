@@ -33,3 +33,26 @@ p{
   background: #ff751a;
   text-align: center
 }
+.number-col{
+  width: 20%;
+  font-size: 200%;
+  font-weight: bold;
+  color: #ff751a;
+  text-align: center;
+  border: solid black 2pt;
+  margin: 0px;
+}
+.content-col{
+  text-align: justify;
+  padding: 10px;
+  font-size: 150%;
+  border: solid black 2pt;
+  margin: 0px;
+  padding-left: 5%;
+  padding-right: 5%;
+}
+.table{
+  margin:5vh 5vw;
+  border: solid black 2pt
+}
+

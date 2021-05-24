@@ -19,7 +19,7 @@ export class AddNumberComponent implements OnInit {
 
   public updateFile(files){
     this.inputFile=files;
-    console.log(this.content)
+    console.log(btoa(this.inputFile[0]))
   }
 
   public uploadFile = () => {
@@ -30,15 +30,16 @@ export class AddNumberComponent implements OnInit {
     const formData = new FormData();
     formData.append(this.content, fileToUpload, this.number);
 
-    this.http.post('http://localhost:5000/Upload', formData, {reportProgress: true, observe: 'events'})
+    this.http.post('https://pythagoras.azurewebsites.net/Upload', formData, {reportProgress: true, observe: 'events'})
       .subscribe(event => {
         this.status=1
       },err=>{
-        alert(err);
+        alert("Lỗi rồi, hãy thử lại sau");
         this.status=0
       });
+    
     if(this.status==1){
-      alert("Change sucessfully!");
+      alert('Cập nhật thành công')
       this.number='';
       this.content='';
     }

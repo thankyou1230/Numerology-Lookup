@@ -1,8 +1,12 @@
 <div id='map'>
   <ul>
-    <li><a href="/">Pythagoras</a></li>
-    <ul [innerHTML]="page_list">
-      
+    <li><a routerLink="/">Pythagoras</a></li>
+    <ul>
+      <li *ngFor="let page of page_list">
+        <a [routerLink]='page.link'>
+          {{page.page}}
+        </a>
+      </li>
     </ul>
   </ul>
 </div>

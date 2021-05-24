@@ -32,7 +32,7 @@ input{
   font-weight: bold;
 }
 #submit:hover{
-
+    color: #fc723b;
 }
 #btn{
   margin-top: 5%;
@@ -95,7 +95,7 @@ input{
   background: black ;
   padding: 5px;
   text-align: center;
-  top: 30%;
+  top: 15%;
   left: 15%;
 }
 #email{
@@ -124,5 +124,13 @@ input{
   float: right;
 }
 #close2:hover{
-  color: #8b00cc;
+  color: #fc723b;
+}
+
+.ng-valid[required], .ng-valid.required  {
+  border-left: 5px solid #42A948; /* green */
+}
+
+.ng-invalid:not(form)  {
+  border-left: 5px solid #a94442; /* red */
 }

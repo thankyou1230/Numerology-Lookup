@@ -1,0 +1,21 @@
+<div id='content'>
+  <a class='header' routerLink='/'>
+    <i class='fas fa-angle-double-left'></i>
+  </a>
+  <h1 class='header'>
+    ISSUE
+  </h1>
+</div>
+<table class="table" style="margin-left: auto; margin-right: auto;width: 75%;">
+  <tr class='row' *ngFor="let issue of issues">
+    <td class="number-col">
+      {{issue.time}}
+    </td>
+    <td class="content-col">
+      {{issue.error}}
+    </td >
+    <td class="col-verify">
+      <button (click)="removeIssue(issue)"></button>
+    </td>
+  </tr>
+</table>

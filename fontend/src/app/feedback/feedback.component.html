@@ -1,11 +1,20 @@
 <div id='content'>
-  <a class='header' href='/'>
+  <a class='header' routerLink='/'>
     <i class='fas fa-angle-double-left'></i>
   </a>
   <h1 class='header'>
     FEEDBACK
   </h1>
 </div>
-<div [innerHtml]="appendHTML">
-  
+<div>
+  <p class="feedback" *ngFor="let feedback of feedbacks">
+    <span class="email">
+      {{feedback.fb_email}}
+    </span>
+    <i style="font-size: 11pt ;margin-left: 10px;">
+      {{feedback.fb_time}}
+    </i>
+    <br><br>
+    "{{feedback.fb_content}}"
+  </p>
 </div>

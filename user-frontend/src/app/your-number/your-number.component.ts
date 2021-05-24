@@ -19,20 +19,24 @@ export class YourNumberComponent implements OnInit {
   result_background
   fb_display='none'
   numb=''
+  email
+  content
   ngOnInit() {
   }
 
   returnResult(){
-    console.log(this.date)
     if(this.date!=undefined){
-    this.http.get("http://localhost:5000/getResult?date="+this.date).subscribe(e=>{
+    this.http.get("https://pythagoras.azurewebsites.net/getResult?date="+this.date).subscribe(e=>{
         let resultArray = Object.keys(e).map(index => {
         let person = e[index];
         return person;
         });
-      this.displayResult(resultArray[0]);
+        if (resultArray!=undefined)
+          this.displayResult(resultArray[0]);
+        else
+          alert('Your number is not available now, please try again later')
     }, err=>{
-      alert("An unexpected error ");
+      alert("Sorry, your number is not available now, please try again later");
     })
     }
     else{
@@ -43,7 +47,6 @@ export class YourNumberComponent implements OnInit {
   updateDate(curdate){
     if(curdate!=undefined)
       this.date=curdate
-      console.log(curdate)
   }
 
   displayResult(arr){
@@ -51,43 +54,31 @@ export class YourNumberComponent implements OnInit {
     this.result_display='';
     this.result_background=arr["image"]
     this.numb=arr["number"]
-    console.log(this.text)
-    console.log(this.result_background)
   }
 
   closeResult(){
     this.result_display='none';
     this.fb_display='none'
-    this.fb_content='';
-    this.fb_email='';
   }
 
-  closeFeedback(){
+  closeFeedback(){ 
     this.fb_display='none'
   }
+  
   fb_pressed(){
     this.fb_display=''
   }
-  validateEmail(email) {
-    const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return re.test(String(email).toLowerCase());
-}
 
-  fb_email=null
-  fb_content=null
-  sendFeedBack(){
-    if(this.validateEmail(this.fb_email)!==true || this.fb_content==null){
-      alert("Please fill the missing content")
-    }
-    else{
-      this.http.post("http://localhost:5000/addFeedBack?email="+this.fb_email+"&fb="+this.fb_content,"").subscribe(e=>{
-        alert('Thanks  for your feedback!')
-        this.fb_display='none'
-        this.fb_email=null
-        this.fb_content=null
-      },err=>{
-          alert(err+'/n please try again',)
+
+  onSubmit(formValue){
+    let date=new Date()
+    this.http.post("https://pythagoras.azurewebsites.net/addFeedBack?email="+formValue.email+"&fb="+formValue.content+"&time="+date,"").subscribe(e=>{
+      alert('Thanks for your feedback!')
+      this.fb_display='none'
+      this.email=''
+      this.content=''
+    },err=>{
+        alert('Oops, please try to send feedback again',)
       })
-    }
   }
 } 

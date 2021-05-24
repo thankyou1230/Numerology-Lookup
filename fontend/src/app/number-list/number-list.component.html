@@ -1,11 +1,18 @@
 <div id='content'>
-  <a class='header' href='/'>
+  <a class='header' routerLink='/'>
     <i class='fas fa-angle-double-left'></i>
   </a>
   <h1 class='header'>
     NUMBER LIST
   </h1>
 </div>
-<div [innerHtml]="appendHTML">
-  
-</div>
+<table class="table" style="margin-left: auto; margin-right: auto;width: 75%;">
+  <tr class='row' *ngFor="let number of numbers">
+    <td class="number-col">
+      {{number.number}}
+    </td>
+    <td class="content-col">
+      {{number.infors}}
+    </td>
+  </tr>
+</table>

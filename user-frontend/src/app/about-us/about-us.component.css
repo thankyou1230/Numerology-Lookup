@@ -13,7 +13,7 @@ h2{
 
 }
 #map{
-  margin-top: 5%;
+  margin-top: 3%;
   width: 80vw;
   height: 60vh;
   margin-left: 10vw;
@@ -26,4 +26,10 @@ div{
   padding-top: 50px;
   padding-bottom: 50px;
   color: white;
+}
+h3{
+  text-decoration: none;
+  font-size: 100%;
+  margin-top: 4vh;
+  margin-bottom: 4vh;
 } 

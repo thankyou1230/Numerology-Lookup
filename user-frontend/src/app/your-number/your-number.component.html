@@ -1,15 +1,15 @@
-<div id=gen style="text-align: center;">
-<div id="content">
-  <h1>INPUT YOUR BIRTHDAY</h1>
-  <input type="date"  (change)="updateDate($event.target.value)">
-</div>
-<div id=btn style="text-align: center;">
-  <button id='submit' type="submit" (click)="returnResult()">RESULT</button>
-</div>
-</div>
+<form id=gen style="text-align: center;">
+  <div id="content">
+    <h1>INPUT YOUR BIRTHDAY</h1>
+    <input type="date" (change)="updateDate($event.target.value)">
+  </div>
+  <div id=btn style="text-align: center;">
+    <button id='submit' type="submit" (click)="returnResult()">SUBMIT</button>
+  </div>
+</form>
 <div id='result-div' [ngStyle]="{display: result_display}">
   <button id='close' (click)="closeResult()">X</button>
-  <iframe style="display: inline;" src="https://www.facebook.com/plugins/share_button.php?href=http%3A%2F%2Flocalhost%3A4200%2Fyour-number&layout=button&size=large&width=77&height=28&appId" width="25%" height="80px" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+  <iframe style="display: inline;" src="https://www.facebook.com/plugins/share_button.php?href=https%3A%2F%2Fpythagoras.azurewebsites.net%2F&layout=button&size=small&width=67&height=20&appId" width="25%" height="80px" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
   <button id='feedback' (click)="fb_pressed()">Feedback</button>
   <div id='result-content'>
     <div style="text-align:center">
@@ -19,10 +19,10 @@
   </div>
   <img [src]="result_background" style="width: 80%; position: relative; margin-top: 0.5%; margin-left: 10%;">
 
-  <div id=fb-div [ngStyle]="{display: fb_display}">
-    <input type="email" id='email' placeholder="Email" [(ngModel)]="fb_email" email>
-    <textarea type="text" id='fb-content' placeholder="what do you want to say to us" [(ngModel)]="fb_content" email #prmEmail="ngModel"></textarea>
-    <button id='submit' style="float: left; font-size: 100%;" (click)="sendFeedBack()">SEND</button>
-    <button id='close2' (click)="closeFeedback()">CANCEL</button>
-  </div>
+  <form id=fb-div [ngStyle]="{display: fb_display}" #feedbackForm='ngForm' (ngSubmit)='onSubmit(feedbackForm.value)'>
+    <input type="email" id='email' placeholder="Email" [(ngModel)]="email" name='email' required email>
+    <textarea type="text" id='fb-content' placeholder="what do you want to say to us"  [(ngModel)]="content" name='content' required></textarea>
+    <button type="submit" id='submit' style="float: left; font-size: 100%;" [disabled]="feedbackForm.form.invalid">SEND</button>
+    <button id='close2' (click)="closeFeedback()" type="button">CANCEL</button>
+  </form>
 </div>

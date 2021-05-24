@@ -1,0 +1,200 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (malloc) failed to allocate 2168 bytes for AllocateHeap
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   In 32 bit mode, the process size limit was hit
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Use 64 bit Java on a 64 bit OS
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (memory/allocation.inline.hpp:61), pid=11356, tid=0x0000000000004254
+#
+# JRE version: Java(TM) SE Runtime Environment (8.0_191-b12) (build 1.8.0_191-b12)
+# Java VM: Java HotSpot(TM) 64-Bit Server VM (25.191-b12 mixed mode windows-amd64 compressed oops)
+# Failed to write core dump. Minidumps are not enabled by default on client versions of Windows
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x000000001794a000):  JavaThread "C1 CompilerThread2" daemon [_thread_in_vm, id=16980, stack(0x0000000019180000,0x0000000019280000)]
+
+Stack: [0x0000000019180000,0x0000000019280000]
+[error occurred during error reporting (printing stack bounds), id 0xc0000005]
+
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+
+
+Current CompileTask:
+C1:    540  667   !   3       com.sun.xml.internal.bind.v2.model.annotation.LocatableAnnotation::create (106 bytes)
+
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0x00000000192b0800 JavaThread "Service Thread" daemon [_thread_blocked, id=9100, stack(0x0000000019680000,0x0000000019780000)]
+=>0x000000001794a000 JavaThread "C1 CompilerThread2" daemon [_thread_in_vm, id=16980, stack(0x0000000019180000,0x0000000019280000)]
+  0x000000001793b000 JavaThread "C2 CompilerThread1" daemon [_thread_blocked, id=5448, stack(0x0000000019080000,0x0000000019180000)]
+  0x0000000017938000 JavaThread "C2 CompilerThread0" daemon [_thread_blocked, id=13784, stack(0x0000000018f80000,0x0000000019080000)]
+  0x0000000017936800 JavaThread "Attach Listener" daemon [_thread_blocked, id=828, stack(0x0000000018e80000,0x0000000018f80000)]
+  0x0000000017935000 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=5604, stack(0x0000000018d80000,0x0000000018e80000)]
+  0x0000000002d9e000 JavaThread "Finalizer" daemon [_thread_blocked, id=16548, stack(0x0000000018b80000,0x0000000018c80000)]
+  0x000000001791a000 JavaThread "Reference Handler" daemon [_thread_blocked, id=19364, stack(0x0000000018a80000,0x0000000018b80000)]
+  0x0000000002ca4000 JavaThread "main" [_thread_blocked, id=19488, stack(0x0000000002b20000,0x0000000002c20000)]
+
+Other Threads:
+  0x00000000178f7800 VMThread [stack: 0x0000000018980000,0x0000000018a80000] [id=21620]
+  0x00000000192e1000 WatcherThread [stack: 0x0000000019780000,0x0000000019880000] [id=12816]
+
+VM state:not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread:  ([mutex/lock_event])
+[0x0000000002c7ee20] CodeCache_lock - owner thread: 0x000000001794a000
+[0x0000000002ca2e60] Compile_lock - owner thread: 0x000000001794a000
+[0x0000000002ca28e0] MethodCompileQueue_lock - owner thread: 0x000000001794a000
+
+Heap:
+ PSYoungGen      total 38400K, used 13323K [0x00000000d5d00000, 0x00000000d8780000, 0x0000000100000000)
+  eden space 33280K, 40% used [0x00000000d5d00000,0x00000000d6a02d48,0x00000000d7d80000)
+  from space 5120K, 0% used [0x00000000d8280000,0x00000000d8280000,0x00000000d8780000)
+  to   space 5120K, 0% used [0x00000000d7d80000,0x00000000d7d80000,0x00000000d8280000)
+ ParOldGen       total 87552K, used 0K [0x0000000081600000, 0x0000000086b80000, 0x00000000d5d00000)
+  object space 87552K, 0% used [0x0000000081600000,0x0000000081600000,0x0000000086b80000)
+ Metaspace       used 8151K, capacity 8350K, committed 8576K, reserved 1060864K
+  class space    used 1029K, capacity 1123K, committed 1152K, reserved 1048576K
+
+Card table byte_map: [0x0000000012160000,0x0000000012560000] byte_map_base: 0x0000000011d55000
+
+Marking Bits: (ParMarkBitMap*) 0x0000000063f83e30
+ Begin Bits: [0x0000000012c10000, 0x0000000014bb8000)
+ End Bits:   [0x0000000014bb8000, 0x0000000016b60000)
+
+Polling page: 0x0000000002c20000
+
+CodeCache: size=245760Kb used=2482Kb max_used=2491Kb free=243277Kb
+ bounds [0x0000000002da0000, 0x0000000003010000, 0x0000000011da0000]
+ total_blobs=992 nmethods=665 adapters=239
+ compilation: enabled
+
+Compilation events (10 events):
+Event: 0.537 Thread 0x000000001794a000 nmethod 663 0x0000000003006110 code [0x0000000003006280, 0x0000000003006488]
+Event: 0.537 Thread 0x000000001794a000  662       1       java.util.TreeMap::access$100 (5 bytes)
+Event: 0.537 Thread 0x000000001794a000 nmethod 662 0x0000000003006550 code [0x00000000030066a0, 0x0000000003006790]
+Event: 0.537 Thread 0x0000000017938000  664       4       java.util.HashMap::getNode (148 bytes)
+Event: 0.538 Thread 0x000000001794a000  665       3       java.lang.Class::searchMethods (90 bytes)
+Event: 0.539 Thread 0x000000001794a000 nmethod 665 0x0000000003006810 code [0x0000000003006a60, 0x00000000030079b8]
+Event: 0.539 Thread 0x000000001794a000  667   !   3       com.sun.xml.internal.bind.v2.model.annotation.LocatableAnnotation::create (106 bytes)
+Event: 0.539 Thread 0x0000000017938000 nmethod 664 0x000000000300f310 code [0x000000000300f460, 0x000000000300f698]
+Event: 0.539 Thread 0x0000000017938000  668       4       java.util.HashMap::get (23 bytes)
+Event: 0.539 Thread 0x000000001793b000 nmethod 610 0x000000000300cbd0 code [0x000000000300cda0, 0x000000000300e548]
+
+GC Heap History (0 events):
+No events
+
+Deoptimization events (4 events):
+Event: 0.448 Thread 0x0000000002ca4000 Uncommon trap: reason=unstable_if action=reinterpret pc=0x0000000002f668dc method=java.lang.String.indexOf([CII[CIII)I @ 3
+Event: 0.504 Thread 0x0000000002ca4000 Uncommon trap: reason=unstable_if action=reinterpret pc=0x0000000002fdeed8 method=java.util.HashMap.getNode(ILjava/lang/Object;)Ljava/util/HashMap$Node; @ 129
+Event: 0.513 Thread 0x0000000002ca4000 Uncommon trap: reason=range_check action=make_not_entrant pc=0x0000000002fc5ca0 method=sun.reflect.generics.parser.SignatureParser.current()C @ 34
+Event: 0.516 Thread 0x0000000002ca4000 Uncommon trap: reason=unstable_if action=reinterpret pc=0x0000000002fe0b34 method=java.util.HashMap.getNode(ILjava/lang/Object;)Ljava/util/HashMap$Node; @ 129
+
+Classes redefined (0 events):
+No events
+
+Internal exceptions (10 events):
+Event: 0.513 Thread 0x0000000002ca4000 Exception <a 'java/lang/ArrayIndexOutOfBoundsException': 72> (0x00000000d67f36e0) thrown at [C:\re\workspace\8-2-build-windows-amd64-cygwin\jdk8u191\11896\hotspot\src\share\vm\interpreter\interpreterRuntime.cpp, line 366]
+Event: 0.513 Thread 0x0000000002ca4000 Exception <a 'java/lang/ArrayIndexOutOfBoundsException': 56> (0x00000000d67f4860) thrown at [C:\re\workspace\8-2-build-windows-amd64-cygwin\jdk8u191\11896\hotspot\src\share\vm\interpreter\interpreterRuntime.cpp, line 366]
+Event: 0.513 Thread 0x0000000002ca4000 Exception <a 'java/lang/ArrayIndexOutOfBoundsException': 56> (0x00000000d67f55d0) thrown at [C:\re\workspace\8-2-build-windows-amd64-cygwin\jdk8u191\11896\hotspot\src\share\vm\interpreter\interpreterRuntime.cpp, line 366]
+Event: 0.513 Thread 0x0000000002ca4000 Exception <a 'java/lang/ArrayIndexOutOfBoundsException': 72> (0x00000000d67f6610) thrown at [C:\re\workspace\8-2-build-windows-amd64-cygwin\jdk8u191\11896\hotspot\src\share\vm\interpreter\interpreterRuntime.cpp, line 366]
+Event: 0.513 Thread 0x0000000002ca4000 Exception <a 'java/lang/ArrayIndexOutOfBoundsException': 56> (0x00000000d67f7888) thrown at [C:\re\workspace\8-2-build-windows-amd64-cygwin\jdk8u191\11896\hotspot\src\share\vm\interpreter\interpreterRuntime.cpp, line 366]
+Event: 0.513 Thread 0x0000000002ca4000 Exception <a 'java/lang/ArrayIndexOutOfBoundsException': 76> (0x00000000d67f8810) thrown at [C:\re\workspace\8-2-build-windows-amd64-cygwin\jdk8u191\11896\hotspot\src\share\vm\interpreter\interpreterRuntime.cpp, line 366]
+Event: 0.513 Thread 0x0000000002ca4000 Exception <a 'java/lang/ArrayIndexOutOfBoundsException': 74> (0x00000000d67f9748) thrown at [C:\re\workspace\8-2-build-windows-amd64-cygwin\jdk8u191\11896\hotspot\src\share\vm\interpreter\interpreterRuntime.cpp, line 366]
+Event: 0.513 Thread 0x0000000002ca4000 Exception <a 'java/lang/ArrayIndexOutOfBoundsException': 74> (0x00000000d67fa670) thrown at [C:\re\workspace\8-2-build-windows-amd64-cygwin\jdk8u191\11896\hotspot\src\share\vm\interpreter\interpreterRuntime.cpp, line 366]
+Event: 0.513 Thread 0x0000000002ca4000 Exception <a 'java/lang/ArrayIndexOutOfBoundsException': 56> (0x00000000d67fb4c0) thrown at [C:\re\workspace\8-2-build-windows-amd64-cygwin\jdk8u191\11896\hotspot\src\share\vm\interpreter\interpreterRuntime.cpp, line 366]
+Event: 0.513 Thread 0x0000000002ca4000 Exception <a 'java/lang/ArrayIndexOutOfBoundsException': 72> (0x00000000d67fc480) thrown at [C:\re\workspace\8-2-build-windows-amd64-cygwin\jdk8u191\11896\hotspot\src\share\vm\interpreter\interpreterRuntime.cpp, line 366]
+
+Events (10 events):
+Event: 0.530 loading class javax/xml/bind/annotation/XmlElement$DEFAULT
+Event: 0.530 loading class javax/xml/bind/annotation/XmlElement$DEFAULT done
+Event: 0.533 loading class com/android/repository/Revision
+Event: 0.533 loading class com/android/repository/Revision done
+Event: 0.535 loading class com/sun/xml/internal/bind/v2/runtime/reflect/Accessor$GetterSetterReflection
+Event: 0.535 loading class com/sun/xml/internal/bind/v2/runtime/reflect/Accessor$GetterSetterReflection done
+Event: 0.535 loading class com/sun/xml/internal/bind/v2/model/impl/GetterSetterPropertySeed
+Event: 0.535 loading class com/sun/xml/internal/bind/v2/model/impl/GetterSetterPropertySeed done
+Event: 0.536 loading class javax/xml/bind/annotation/XmlAccessOrder
+Event: 0.536 loading class javax/xml/bind/annotation/XmlAccessOrder done
+
+
+Dynamic libraries:
+0x00007ff640160000 - 0x00007ff640197000 	C:\Program Files\Java\jdk1.8.0_191\bin\java.exe
+0x00007fff79790000 - 0x00007fff79985000 	C:\WINDOWS\SYSTEM32\ntdll.dll
+0x00007fff77fc0000 - 0x00007fff7807d000 	C:\WINDOWS\System32\KERNEL32.DLL
+0x00007fff77520000 - 0x00007fff777e8000 	C:\WINDOWS\System32\KERNELBASE.dll
+0x00007fff79220000 - 0x00007fff792cc000 	C:\WINDOWS\System32\ADVAPI32.dll
+0x00007fff78970000 - 0x00007fff78a0e000 	C:\WINDOWS\System32\msvcrt.dll
+0x00007fff79180000 - 0x00007fff7921b000 	C:\WINDOWS\System32\sechost.dll
+0x00007fff79460000 - 0x00007fff7958b000 	C:\WINDOWS\System32\RPCRT4.dll
+0x00007fff778a0000 - 0x00007fff77a40000 	C:\WINDOWS\System32\USER32.dll
+0x00007fff76fb0000 - 0x00007fff76fd2000 	C:\WINDOWS\System32\win32u.dll
+0x00007fff79400000 - 0x00007fff7942a000 	C:\WINDOWS\System32\GDI32.dll
+0x00007fff771b0000 - 0x00007fff772bb000 	C:\WINDOWS\System32\gdi32full.dll
+0x00007fff77320000 - 0x00007fff773bd000 	C:\WINDOWS\System32\msvcp_win.dll
+0x00007fff77060000 - 0x00007fff77160000 	C:\WINDOWS\System32\ucrtbase.dll
+0x00007fff6c950000 - 0x00007fff6cbea000 	C:\WINDOWS\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.19041.844_none_ca00b6081b84eb1d\COMCTL32.dll
+0x00007fff79430000 - 0x00007fff79460000 	C:\WINDOWS\System32\IMM32.DLL
+0x0000000064010000 - 0x00000000640e2000 	C:\Program Files\Java\jdk1.8.0_191\jre\bin\msvcr100.dll
+0x0000000063760000 - 0x0000000064004000 	C:\Program Files\Java\jdk1.8.0_191\jre\bin\server\jvm.dll
+0x00007fff78900000 - 0x00007fff78908000 	C:\WINDOWS\System32\PSAPI.DLL
+0x00007fff6e8d0000 - 0x00007fff6e8f7000 	C:\WINDOWS\SYSTEM32\WINMM.dll
+0x00007fff65500000 - 0x00007fff65509000 	C:\WINDOWS\SYSTEM32\WSOCK32.dll
+0x00007fff78ac0000 - 0x00007fff78b2b000 	C:\WINDOWS\System32\WS2_32.dll
+0x00007fff6e780000 - 0x00007fff6e78a000 	C:\WINDOWS\SYSTEM32\VERSION.dll
+0x0000000063750000 - 0x000000006375f000 	C:\Program Files\Java\jdk1.8.0_191\jre\bin\verify.dll
+0x0000000063720000 - 0x0000000063749000 	C:\Program Files\Java\jdk1.8.0_191\jre\bin\java.dll
+0x0000000063700000 - 0x0000000063716000 	C:\Program Files\Java\jdk1.8.0_191\jre\bin\zip.dll
+0x00007fff781a0000 - 0x00007fff788e2000 	C:\WINDOWS\System32\SHELL32.dll
+0x00007fff74fb0000 - 0x00007fff75740000 	C:\WINDOWS\SYSTEM32\windows.storage.dll
+0x00007fff77aa0000 - 0x00007fff77df5000 	C:\WINDOWS\System32\combase.dll
+0x00007fff76870000 - 0x00007fff7689c000 	C:\WINDOWS\SYSTEM32\Wldp.dll
+0x00007fff777f0000 - 0x00007fff7789e000 	C:\WINDOWS\System32\SHCORE.dll
+0x00007fff78910000 - 0x00007fff78965000 	C:\WINDOWS\System32\shlwapi.dll
+0x00007fff76e10000 - 0x00007fff76e2f000 	C:\WINDOWS\SYSTEM32\profapi.dll
+0x00000000636e0000 - 0x00000000636fa000 	C:\Program Files\Java\jdk1.8.0_191\jre\bin\net.dll
+0x00007fff765e0000 - 0x00007fff7664a000 	C:\WINDOWS\system32\mswsock.dll
+0x00000000636c0000 - 0x00000000636d1000 	C:\Program Files\Java\jdk1.8.0_191\jre\bin\nio.dll
+
+VM Arguments:
+jvm_args: -Dcom.android.sdkmanager.toolsdir=C:\Users\phant\AppData\Local\Android\Sdk\tools\bin\\.. 
+java_command: com.android.sdklib.tool.AvdManagerCli list target
+java_class_path (initial): C:\Users\phant\AppData\Local\Android\Sdk\tools\bin\..\lib\dvlib-26.0.0-dev.jar;C:\Users\phant\AppData\Local\Android\Sdk\tools\bin\..\lib\jimfs-1.1.jar;C:\Users\phant\AppData\Local\Android\Sdk\tools\bin\..\lib\jsr305-1.3.9.jar;C:\Users\phant\AppData\Local\Android\Sdk\tools\bin\..\lib\repository-26.0.0-dev.jar;C:\Users\phant\AppData\Local\Android\Sdk\tools\bin\..\lib\j2objc-annotations-1.1.jar;C:\Users\phant\AppData\Local\Android\Sdk\tools\bin\..\lib\layoutlib-api-26.0.0-dev.jar;C:\Users\phant\AppData\Local\Android\Sdk\tools\bin\..\lib\gson-2.3.jar;C:\Users\phant\AppData\Local\Android\Sdk\tools\bin\..\lib\httpcore-4.2.5.jar;C:\Users\phant\AppData\Local\Android\Sdk\tools\bin\..\lib\commons-logging-1.1.1.jar;C:\Users\phant\AppData\Local\Android\Sdk\tools\bin\..\lib\commons-compress-1.12.jar;C:\Users\phant\AppData\Local\Android\Sdk\tools\bin\..\lib\annotations-26.0.0-dev.jar;C:\Users\phant\AppData\Local\Android\Sdk\tools\bin\..\lib\error_prone_annotations-2.0.18.jar;C:\Users\phant\AppData\Local\Android\Sdk\tools\bin\..\lib\animal-sniffer-annotations-1.14.jar;C:\Users\phant\AppData\Local\Android\Sdk\tools\bin\..\lib\httpclient-4.2.6.jar;C:\Users\phant\AppData\Local\Android\Sdk\tools\bin\..\lib\commons-codec-1.6.jar;C:\Users\phant\AppData\Local\Android\Sdk\tools\bin\..\lib\common-26.0.0-dev.jar;C:\Users\phant\AppData\Local\Android\Sdk\tools\bin\..\lib\kxml2-2.3.0.jar;C:\Users\phant\AppData\Local\Android\Sdk\tools\bin\..\lib\httpmime-4.1.jar;C:\Users\phant\AppData\Local\Android\Sdk\tools\bin\..\lib\annotations-12.0.jar;C:\Users\phant\AppData\Local\Android\Sdk\tools\bin\..\lib\sdklib-26.0.0-dev.jar;C:\Users\phant\AppData\Local\Android\Sdk\tools\bin\..\lib\guava-22.0.jar
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+JAVA_HOME=C:\Program Files\Java\jdk1.8.0_191
+CLASSPATH=C:\Users\phant\AppData\Local\Android\Sdk\tools\bin\..\lib\dvlib-26.0.0-dev.jar;C:\Users\phant\AppData\Local\Android\Sdk\tools\bin\..\lib\jimfs-1.1.jar;C:\Users\phant\AppData\Local\Android\Sdk\tools\bin\..\lib\jsr305-1.3.9.jar;C:\Users\phant\AppData\Local\Android\Sdk\tools\bin\..\lib\repository-26.0.0-dev.jar;C:\Users\phant\AppData\Local\Android\Sdk\tools\bin\..\lib\j2objc-annotations-1.1.jar;C:\Users\phant\AppData\Local\Android\Sdk\tools\bin\..\lib\layoutlib-api-26.0.0-dev.jar;C:\Users\phant\AppData\Local\Android\Sdk\tools\bin\..\lib\gson-2.3.jar;C:\Users\phant\AppData\Local\Android\Sdk\tools\bin\..\lib\httpcore-4.2.5.jar;C:\Users\phant\AppData\Local\Android\Sdk\tools\bin\..\lib\commons-logging-1.1.1.jar;C:\Users\phant\AppData\Local\Android\Sdk\tools\bin\..\lib\commons-compress-1.12.jar;C:\Users\phant\AppData\Local\Android\Sdk\tools\bin\..\lib\annotations-26.0.0-dev.jar;C:\Users\phant\AppData\Local\Android\Sdk\tools\bin\..\lib\error_prone_annotations-2.0.18.jar;C:\Users\phant\AppData\Local\Android\Sdk\tools\bin\..\lib\animal-sniffer-annotations-1.14.jar;C:\Users\phant\AppData\Local\Android\Sdk\tools\bin\..\lib\httpclient-4.2.6.jar;C:\Users\phant\AppData\Local\Android\Sdk\tools\bin\..\lib\commons-codec-1.6.jar;C:\Users\phant\AppData\Local\Android\Sdk\tools\bin\..\lib\common-26.0.0-dev.jar;C:\Users\phant\AppData\Local\Android\Sdk\tools\bin\..\lib\kxml2-2.3.0.jar;C:\Users\phant\AppData\Local\Android\Sdk\tools\bin\..\lib\httpmime-4.1.jar;C:\Users\phant\AppData\Local\Android\Sdk\tools\bin\..\lib\annotations-12.0.jar;C:\Users\phant\AppData\Local\Android\Sdk\tools\bin\..\lib\sdklib-26.0.0-dev.jar;C:\Users\phant\AppData\Local\Android\Sdk\tools\bin\..\lib\guava-22.0.jar
+USERNAME=phant
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 158 Stepping 9, GenuineIntel
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS: Windows 10.0 , 64 bit Build 19041 (10.0.19041.928)
+
+CPU:total 4 (initial active 4) (4 cores per cpu, 1 threads per core) family 6 model 158 stepping 9, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, avx, avx2, aes, clmul, erms, 3dnowpref, lzcnt, tsc, tscinvbit, bmi1, bmi2, adx
+
+Memory: 4k page, physical 8294548k(361172k free), swap 28005144k(404k free)
+
+vm_info: Java HotSpot(TM) 64-Bit Server VM (25.191-b12) for windows-amd64 JRE (1.8.0_191-b12), built on Oct  6 2018 09:29:03 by "java_re" with MS VC++ 10.0 (VS2010)
+
+time: Thu May 20 09:24:12 2021
+elapsed time: 0 seconds (0d 0h 0m 0s)
+

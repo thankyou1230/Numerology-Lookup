@@ -5,25 +5,21 @@ import { HttpClient } from '@angular/common/http';
   selector: 'app-number-list',
   templateUrl: './number-list.component.html',
   styleUrls: ['./number-list.component.css'],
-  encapsulation: ViewEncapsulation.None,
 })
 export class NumberListComponent implements OnInit {
 
   constructor(private http:HttpClient) { }
-  appendHTML: string="";
+  numbers
   ngOnInit() {
-    this.http.get('http://localhost:5000/getNumber').subscribe((e) => {
-      for(let l=0; l<Object.keys(e).length; l++){
-          const resultArray = Object.keys(e[l]).map(index => {
-          let person = e[l][index];
-          return person;
-          });    
-          this.appendHTML+="<p class='number'>Số "+resultArray[0]+"</p>";
-         }
+    this.http.get('https://pythagoras.azurewebsites.net/getNumber').subscribe((e) => {
+        this.numbers = Object.keys(e).map(index => {
+        let person = e[index];
+        return person;
+        });    
       },
       err => {
         console.log(err);
-        alert("Có lỗi trong quá trình thực thi, xin thử lại")
+        alert("Hiện tại không thể laod được trang này, xin thử lại sau")
       }
     )
   }
