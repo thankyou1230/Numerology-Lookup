@@ -63,3 +63,25 @@ textarea{
   background: #ff751a;
   text-align: center
 }
+.loader {
+  border: 1px solid lightgrey;
+  border-radius: 50%;
+  border-bottom: 2px solid black;
+  width: 20px;
+  height: 20px;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+}
+
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

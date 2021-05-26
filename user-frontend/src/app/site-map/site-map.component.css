@@ -14,3 +14,25 @@ a:hover{
   text-shadow: 0 4px 4px black;
   transition: text-shadow .5s;
 }
+.loader {
+  border: 1px solid white;
+  border-radius: 50%;
+  border-top: 2px solid ;
+  border-bottom: 2px solid black;
+  width: 15px;
+  height: 15px;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+  margin-left: -20%;
+  margin-top: 10%;
+}
+
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

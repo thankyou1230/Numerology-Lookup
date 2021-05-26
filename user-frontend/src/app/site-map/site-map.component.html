@@ -1,8 +1,10 @@
 <div id='map'>
   <ul>
-    <li><a routerLink="/">Pythagoras</a></li>
+    <li style="text-align: left;"><a routerLink="/">Pythagoras</a></li>
     <ul>
-      <li *ngFor="let page of page_list">
+      <div class="loader" [ngStyle]="{display: loading_status}">
+      </div>
+      <li *ngFor="let page of page_list" style="text-align: left;">
         <a [routerLink]='page.link'>
           {{page.page}}
         </a>

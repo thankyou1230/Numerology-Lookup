@@ -1,16 +1,17 @@
-<form id=gen style="text-align: center;">
+<form id=gen style="text-align: center;" [ngStyle]="{opacity: opacity1}">
   <div id="content">
     <h1>INPUT YOUR BIRTHDAY</h1>
     <input type="date" (change)="updateDate($event.target.value)">
   </div>
   <div id=btn style="text-align: center;">
     <button id='submit' type="submit" (click)="returnResult()">SUBMIT</button>
+    <div class="loader" [ngStyle]="{display: loading_status}"></div>
   </div>
 </form>
-<div id='result-div' [ngStyle]="{display: result_display}">
+<div id='result-div' [ngStyle]="{display: result_display,filter:opacity}">
   <button id='close' (click)="closeResult()">X</button>
-  <iframe style="display: inline;" src="https://www.facebook.com/plugins/share_button.php?href=https%3A%2F%2Fpythagoras.azurewebsites.net%2F&layout=button&size=small&width=67&height=20&appId" width="25%" height="80px" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
-  <button id='feedback' (click)="fb_pressed()">Feedback</button>
+  <iframe style="display: inline;" src="https://www.facebook.com/plugins/share_button.php?href=https%3A%2F%2Fpythagoras.azurewebsites.net%2F&layout=button&size=small&width=67&height=20&appId" width="120px" height="120px" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+  <button id='feedback' (click)="fb_pressed()" #btn_fb>Feedback</button>
   <div id='result-content'>
     <div style="text-align:center">
       <h2 style="font-size: 3.5vh; color: white;">Số {{numb}}</h2>
@@ -18,11 +19,9 @@
     <p style="white-space: pre-line" id='text'>{{text}}</p>
   </div>
   <img [src]="result_background" style="width: 80%; position: relative; margin-top: 0.5%; margin-left: 10%;">
-
-  <form id=fb-div [ngStyle]="{display: fb_display}" #feedbackForm='ngForm' (ngSubmit)='onSubmit(feedbackForm.value)'>
-    <input type="email" id='email' placeholder="Email" [(ngModel)]="email" name='email' required email>
-    <textarea type="text" id='fb-content' placeholder="what do you want to say to us"  [(ngModel)]="content" name='content' required></textarea>
-    <button type="submit" id='submit' style="float: left; font-size: 100%;" [disabled]="feedbackForm.form.invalid">SEND</button>
-    <button id='close2' (click)="closeFeedback()" type="button">CANCEL</button>
-  </form>
 </div>
+<form id=fb-div [ngStyle]="{display: fb_display}" #feedbackForm='ngForm' (ngSubmit)='onSubmit(feedbackForm.value)' #f>
+  <input type="email" id='email' placeholder="Email" [(ngModel)]="email" name='email' required email #childemail>
+  <textarea type="text" id='fb-content' placeholder="what do you want to say to us"  [(ngModel)]="content" name='content' required #childcontent></textarea>
+  <button type="submit" id='submit' style="font-size: 100%; color:#fc723b;margin-bottom: 5px; font-size: 150%;" [disabled]="feedbackForm.form.invalid" #submit>SEND</button>
+</form>

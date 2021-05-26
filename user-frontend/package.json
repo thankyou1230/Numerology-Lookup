@@ -28,6 +28,7 @@
     "cordova-plugin-dialogs": "^2.0.2",
     "core-js": "^2.5.4",
     "modal-service": "^1.0.1",
+    "ng-click-outside": "^8.0.0",
     "ngx-bootstrap": "^3.3.0",
     "rxjs": "~6.2.0",
     "zone.js": "~0.8.26"

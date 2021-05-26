@@ -39,20 +39,45 @@ p{
   font-weight: bold;
   color: #ff751a;
   text-align: center;
-  border: solid black 2pt;
+  border: solid #ff751a 1pt;
   margin: 0px;
+  background: white;
 }
 .content-col{
   text-align: justify;
   padding: 10px;
   font-size: 150%;
-  border: solid black 2pt;
+  border: solid #ff751a 1pt;
   margin: 0px;
-  padding-left: 5%;
+  padding-left: 2%;
   padding-right: 5%;
+  background: white;
 }
 .table{
   margin:5vh 5vw;
-  border: solid black 2pt
+  border: solid #ff751a 1pt;
+  background: #ff751a;
+}
+.loader {
+  border: 1px solid white;
+  border-radius: 50%;
+  border-bottom: 2px solid black;
+  width: 20px;
+  height: 20px;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+}
+
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 

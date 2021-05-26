@@ -27,12 +27,13 @@ input{
   background: none;
   border:none;
   color: white;
-  font-size: 200%;
   transition: box-shadow .5s;
   font-weight: bold;
+  font-size: 200%;
+  border-radius: 15px;
 }
 #submit:hover{
-    color: #fc723b;
+  box-shadow: 1px 1px 2px 2px black;
 }
 #btn{
   margin-top: 5%;
@@ -51,7 +52,8 @@ input{
   top: 16vh;
   background: #fc723b;
   margin-left: 5%;
-  padding-bottom: 10%;
+  padding-bottom: 5%;
+  
 }
 #close{
   border:none;
@@ -70,13 +72,13 @@ input{
   background: #1877f2;
   display: inline;
   float: left;
-  font-size: 0.85em;
+  font-size: 68%;
   font-weight: bold;
   color: white;
-  padding-top: 3px;
-  padding-bottom: 5px;
+  padding-top: 2px;
+  padding-bottom: 2px;
   border-radius: 3px;
-  margin-right: 2px;
+  margin-right: 1px;
 }
 #feedback:active{
   opacity: 85%;
@@ -88,15 +90,19 @@ input{
   margin: 3% 10%;
   text-align: justify;
 }
-#result-content{
-}
 #fb-div{
   position: absolute;
-  background: black ;
-  padding: 5px;
+  background: #7100cc ;
+  padding: 10px;
   text-align: center;
   top: 15%;
   left: 15%;
+  box-shadow: 0 8px 8px rgb(0 0 0 / 24%);
+  text-decoration: none;
+  position: fixed;
+  margin-left: 2vw;
+  margin-top: 10%;
+  border-radius: 15px;
 }
 #email{
   width: 60vw; 
@@ -105,6 +111,8 @@ input{
   text-align: left;
   margin-bottom: 10px;
   display: block;
+  border-radius: 15px;
+  padding: 5px;
 }
 #fb-content{
   width: 60vw; 
@@ -113,6 +121,9 @@ input{
   text-align: left;
   margin-bottom: 10px;
   display: block;
+  border-radius: 15px;
+  padding: 5px;
+
 }
 #close2{
   background: none;
@@ -124,7 +135,7 @@ input{
   float: right;
 }
 #close2:hover{
-  color: #fc723b;
+  color:blue;
 }
 
 .ng-valid[required], .ng-valid.required  {
@@ -133,4 +144,27 @@ input{
 
 .ng-invalid:not(form)  {
   border-left: 5px solid #a94442; /* red */
+}
+
+.loader {
+  border: 1px solid white;
+  border-radius: 50%;
+  border-bottom: 2px solid black;
+  width: 20px;
+  height: 20px;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+}
+
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }

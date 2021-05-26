@@ -39,24 +39,28 @@ p{
   font-weight: bold;
   color: #ff751a;
   text-align: center;
-  border: solid black 2pt;
+  border: solid #ff751a 1pt;
   margin: 0px;
+  background: white;
 }
 .content-col{
   width: 60%;
   text-align: justify;
   padding: 20px;
   font-size: 150%;
-  border: solid black 2pt;
+  border: solid #ff751a 1pt;
   margin: 0px;
+  background: white;
 }
 .table{
   margin:5vh 5vw;
-  border: solid black 2pt;
+  border: solid #ff751a 1pt;
+  background: #ff751a;
 }
 .col-verify{
   text-align: center;
-  border: solid black 2pt;
+  border: solid #ff751a 1pt;
+  background: white;
 }
 button{
   width: 50px;

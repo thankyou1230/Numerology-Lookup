@@ -9,6 +9,7 @@ export class SiteMapComponent implements OnInit, OnDestroy {
 
   constructor(private http:HttpClient) { }
 
+  loading_status=''
   page_list
   ngOnInit() {
     this.http.get('https://pythagoras.azurewebsites.net/getSiteMap').subscribe(e=>{
@@ -16,6 +17,7 @@ export class SiteMapComponent implements OnInit, OnDestroy {
         let i = e[index];
         return i;
         });
+        this.loading_status='none'
     },err=>{
       alert('Error, try reload this page')
     })

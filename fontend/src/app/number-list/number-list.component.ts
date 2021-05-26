@@ -10,7 +10,9 @@ export class NumberListComponent implements OnInit {
 
   constructor(private http:HttpClient) { }
   numbers
+  loading_status
   ngOnInit() {
+    this.loading_status=''
     this.http.get('https://pythagoras.azurewebsites.net/getNumber').subscribe((e) => {
         this.numbers = Object.keys(e).map(index => {
         let person = e[index];
@@ -22,6 +24,7 @@ export class NumberListComponent implements OnInit {
         alert("Hiện tại không thể laod được trang này, xin thử lại sau")
       }
     )
+    this.loading_status='none'
   }
 
 }

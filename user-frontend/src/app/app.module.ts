@@ -12,6 +12,7 @@ import { YourNumberComponent } from './your-number/your-number.component';
 import {HttpClientModule} from '@angular/common/http';
 import { SiteMapComponent } from './site-map/site-map.component';
 import { Err404Component } from './err404/err404.component';
+import { ClickOutsideModule } from 'ng-click-outside';
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +27,8 @@ import { Err404Component } from './err404/err404.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ClickOutsideModule
   ],
   providers: [],
   bootstrap: [AppComponent]

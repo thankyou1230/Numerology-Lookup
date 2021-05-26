@@ -13,36 +13,32 @@ export class AddNumberComponent implements OnInit {
   number
   content
   inputFile
-  status
+  loading_status='none'
   ngOnInit() {
   }
 
   public updateFile(files){
     this.inputFile=files;
-    console.log(btoa(this.inputFile[0]))
   }
 
-  public uploadFile = () => {
+  public onSubmit(formValue){
+    this.loading_status=''
     if (this.inputFile.length === 0 || this.content=='' || this.number=='') {
       return;
     }
     let fileToUpload = <File>this.inputFile[0];
-    const formData = new FormData();
+    const formData = new FormData();  
     formData.append(this.content, fileToUpload, this.number);
 
-    this.http.post('https://pythagoras.azurewebsites.net/Upload', formData, {reportProgress: true, observe: 'events'})
+    this.http.post('https://pythagoras.azurewebsites.net/Upload', formData)
       .subscribe(event => {
-        this.status=1
+        alert('Cập nhật thành công')
+        this.number='';
+        this.content='';
       },err=>{
-        alert("Lỗi rồi, hãy thử lại sau");
-        this.status=0
+        alert("Đã xảy ra lỗi, hãy thử lại sau");
       });
-    
-    if(this.status==1){
-      alert('Cập nhật thành công')
-      this.number='';
-      this.content='';
-    }
+    this.loading_status='none'
   }
 
 }
