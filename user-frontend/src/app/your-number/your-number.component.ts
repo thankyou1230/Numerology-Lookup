@@ -79,11 +79,6 @@ export class YourNumberComponent implements OnInit {
 
   closeResult(){
     this.result_display='none';
-    this.fb_display='none'
-  }
-
-  closeFeedback(){ 
-    this.fb_display='none'
   }
   
   fb_pressed(){
@@ -100,11 +95,14 @@ export class YourNumberComponent implements OnInit {
       this.fb_display='none'
       this.email=''
       this.content=''
+      this.opacity1='100%'
+      this.opacity='none'
     },err=>{
         alert('Oops, please try to send feedback again',)
+        this.opacity1='100%'
+        this.opacity='none'
       })
-    this.opacity1='none'
-    this.opacity='100%'
+
   }
 
 

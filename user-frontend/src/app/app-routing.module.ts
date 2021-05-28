@@ -11,6 +11,7 @@ const routes: Routes = [
   {path:'', component: HomePageComponent},
   {path:'about-us', component: AboutUsComponent},
   {path: 'your-number', component: YourNumberComponent},
+  {path: 'your-number/:id', component: YourNumberComponent},
   {path: 'private-policy', component:PrivatePolicyComponent},
   {path: 'site-map', component: SiteMapComponent},
   {path: 'err-404', component: Err404Component},
